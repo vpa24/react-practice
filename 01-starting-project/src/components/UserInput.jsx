@@ -2,42 +2,6 @@ export default function UserInput({ onInvestmentChange, investmentValue }) {
   const { initialInvestment, annualInvestment, expectedReturn, duration } =
     investmentValue;
 
-  function handleInvestmentChange(event) {
-    onInvestmentChange(
-      event.target.valueAsNumber,
-      annualInvestment,
-      expectedReturn,
-      duration
-    );
-  }
-
-  function handleAnnualChange(event) {
-    onInvestmentChange(
-      initialInvestment,
-      event.target.valueAsNumber,
-      expectedReturn,
-      duration
-    );
-  }
-
-  function handleExpectedChange(event) {
-    onInvestmentChange(
-      initialInvestment,
-      annualInvestment,
-      event.target.valueAsNumber,
-      duration
-    );
-  }
-
-  function handleDurationChange(event) {
-    onInvestmentChange(
-      initialInvestment,
-      annualInvestment,
-      expectedReturn,
-      event.target.valueAsNumber
-    );
-  }
-
   return (
     <section id="user-input">
       <div className="input-group group">
@@ -45,7 +9,9 @@ export default function UserInput({ onInvestmentChange, investmentValue }) {
           <label>INITIAL INVESTMENT</label>
           <input
             type="number"
-            onChange={handleInvestmentChange}
+            onChange={(event) =>
+              onInvestmentChange("initialInvestment", event.target.value)
+            }
             value={initialInvestment}
           />
         </div>
@@ -53,7 +19,9 @@ export default function UserInput({ onInvestmentChange, investmentValue }) {
           <label>ANNUAL INVESTMENT</label>
           <input
             type="number"
-            onChange={handleAnnualChange}
+            onChange={(event) =>
+              onInvestmentChange("annualInvestment", event.target.value)
+            }
             value={annualInvestment}
           />
         </div>
@@ -63,7 +31,9 @@ export default function UserInput({ onInvestmentChange, investmentValue }) {
           <label>EXPECPTED RETURN</label>
           <input
             type="number"
-            onChange={handleExpectedChange}
+            onChange={(event) =>
+              onInvestmentChange("expectedReturn", event.target.value)
+            }
             value={expectedReturn}
           />
         </div>
@@ -71,7 +41,9 @@ export default function UserInput({ onInvestmentChange, investmentValue }) {
           <label>DURATION</label>
           <input
             type="number"
-            onChange={handleDurationChange}
+            onChange={(event) =>
+              onInvestmentChange("duration", event.target.value)
+            }
             value={duration}
           />
         </div>

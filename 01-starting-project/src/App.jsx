@@ -11,21 +11,13 @@ const INVESTMENT = {
 };
 function App() {
   const [investment, setInvestment] = useState(INVESTMENT);
-
+  console.log(investment);
   const inputIsValid = investment.duration > 0;
-  function handleInvestmentValue(
-    initialInvestment,
-    annualInvestment,
-    expectedReturn,
-    duration
-  ) {
+  function handleInvestmentValue(inputIdentifer, newValue) {
     setInvestment((prevInvest) => {
       return {
         ...prevInvest,
-        initialInvestment,
-        annualInvestment,
-        expectedReturn,
-        duration,
+        [inputIdentifer]: +newValue,
       };
     });
   }
