@@ -11,7 +11,6 @@ const INVESTMENT = {
 };
 function App() {
   const [investment, setInvestment] = useState(INVESTMENT);
-  console.log(investment);
   const inputIsValid = investment.duration > 0;
   function handleInvestmentValue(inputIdentifer, newValue) {
     setInvestment((prevInvest) => {
