@@ -3,7 +3,12 @@ export default function UserInput({ onInvestmentChange, investmentValue }) {
     investmentValue;
 
   function handleInvestmentChange(event) {
-    onInvestmentChange(event.target.valueAsNumber, annualInvestment, expectedReturn, duration);
+    onInvestmentChange(
+      event.target.valueAsNumber,
+      annualInvestment,
+      expectedReturn,
+      duration
+    );
   }
 
   function handleAnnualChange(event) {
@@ -34,7 +39,7 @@ export default function UserInput({ onInvestmentChange, investmentValue }) {
   }
 
   return (
-    <div id="user-input">
+    <section id="user-input">
       <div className="input-group group">
         <div>
           <label>INITIAL INVESTMENT</label>
@@ -46,7 +51,11 @@ export default function UserInput({ onInvestmentChange, investmentValue }) {
         </div>
         <div>
           <label>ANNUAL INVESTMENT</label>
-          <input type="number" onChange={handleAnnualChange} value={annualInvestment} />
+          <input
+            type="number"
+            onChange={handleAnnualChange}
+            value={annualInvestment}
+          />
         </div>
       </div>
       <div className="input-group">
@@ -67,6 +76,6 @@ export default function UserInput({ onInvestmentChange, investmentValue }) {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
